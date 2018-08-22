@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>ReactNative.Forms.Droid</id>
+    <version>1.0.55</version>
+    <authors>voydz</authors>
+    <owners>voydz</owners>
+    <iconUrl>https://reactjs.org/favicon.ico</iconUrl>
+    <projectUrl>https://github.com/voydz/xamarin-react-native</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Use ReactNative.Droid inside of Xamarin.Forms.</description>
+    <releaseNotes>Initial release.</releaseNotes>
+    <copyright>Copyright 2018</copyright>
+    <tags>react react-native com.facebook.react facebook</tags>
+    <dependencies>
+      <dependency id="ReactNative.Forms" version="1.0.55" />
+      <dependency id="ReactNative.Droid" version="1.0.55" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin/Release/ReactNative.Forms.Droid.dll" target="lib/MonoAndroid10" />
+  </files>
+</package>
