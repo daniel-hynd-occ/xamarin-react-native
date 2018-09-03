@@ -24,6 +24,10 @@ const instructions = Platform.select({
 });
 
 class RNHelloWorld extends Component<{}> {
+  _onPressToastButton() {
+	  NativeModules.ToastExample.show();
+  }
+	
   _onPressCallbackButton() {
 	  NativeModules.RNG.nextAsString(
       (err)=>{
@@ -37,7 +41,7 @@ class RNHelloWorld extends Component<{}> {
 
   _onPressPromiseButton = async function() {
     try{
-      var {x} = await NativeModules.RNG.nextNegative(10,20);
+      var x = await NativeModules.RNG.nextNegative(10,20);
       Alert.alert('Number is:' + x);
     }
     catch(e)
@@ -45,8 +49,8 @@ class RNHelloWorld extends Component<{}> {
       console.error(e);
     }
   }
-	
   render() {
+	
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
@@ -59,8 +63,13 @@ class RNHelloWorld extends Component<{}> {
           {instructions}
         </Text>
         <Text>
-          Test ? ! zzz
+          Test ? ! www
         </Text>
+		<Button
+          onPress={this._onPressToastButton}
+          title="Toast"
+          color="#2267d6"
+        />
         <Button
           onPress={this._onPressCallbackButton}
           title="Callback"

@@ -6,7 +6,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp.iOS", "SampleApp.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp.Droid", "SampleApp.Droid\SampleApp.Droid.csproj", "{72D1B391-859D-4927-92E5-E911A1887036}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedCode", "SharedCode\SharedCode.csproj", "{F36F3B28-93D9-42F9-935E-A35739B6360C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharedCode", "SharedCode\SharedCode.csproj", "{F36F3B28-93D9-42F9-935E-A35739B6360C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
