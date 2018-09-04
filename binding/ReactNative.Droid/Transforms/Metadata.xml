@@ -163,6 +163,18 @@
             <parameter name="rootNode" type="java.lang.Object" />
         </method>
     </add-node>
+    <remove-node path="/api/package[@name='com.facebook.react.uimanager']/interface[@name='ReactShadowNode']/method[@name='addChildAt' and count(parameter)=2 and parameter[1][@type='T']]" />
+    <add-node path="/api/package[@name='com.facebook.react.uimanager']/interface[@name='ReactShadowNode']">
+      <method abstract="false" deprecated="not deprecated" final="true" name="addChildAt" native="false" return="void" static="false" synchronized="false" visibility="public">
+        <parameter name="child" type="java.lang.Object" />
+        <parameter name="i" type="int" />
+      </method>
+    </add-node>
+    <attr path="/api/package[@name='com.facebook.react.uimanager']/interface[@name='ReactShadowNode']/method[@name='setReactTag']" name="propertyName"></attr>
+    <attr path="/api/package[@name='com.facebook.react.uimanager']/interface[@name='ReactShadowNode']/method[@name='getReactTag']" name="propertyName"></attr>
+    <!-- ReactShadowNodeImpl -->
+    <attr path="/api/package[@name='com.facebook.react.uimanager']/class[@name='ReactShadowNodeImpl']/method[@name='setReactTag']" name="propertyName"></attr>
+    <attr path="/api/package[@name='com.facebook.react.uimanager']/class[@name='ReactShadowNodeImpl']/method[@name='getReactTag']" name="propertyName"></attr>
     <!-- ReactRawTextManager -->
     <attr path="/api/package[@name='com.facebook.react.views.text']/class[@name='ReactRawTextManager']/method[@name='createViewInstance' and count(parameter)=1 and parameter[1][@type='com.facebook.react.uimanager.ThemedReactContext']]" name="managedReturn">Java.Lang.Object</attr>
     <attr path="/api/package[@name='com.facebook.react.views.text']/class[@name='ReactRawTextManager']/method[@name='createViewInstance' and count(parameter)=1 and parameter[1][@type='com.facebook.react.uimanager.ThemedReactContext']]" name="visibility">protected</attr>

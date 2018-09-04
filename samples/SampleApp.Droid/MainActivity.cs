@@ -9,6 +9,7 @@ using Android.Support.V7.App;
 using Android.Content;
 using Android.Net;
 using Android.Provider;
+using Com.Horcrux.Svg;
 
 namespace SampleApp.Droid
 {
@@ -41,6 +42,7 @@ namespace SampleApp.Droid
                     .SetJSMainModulePath("index")
                     .AddPackage(new MainReactPackage())
                     .AddPackage(new ApiPackage())
+                    .AddPackage(new SvgPackage())
 #if DEBUG
                     .SetUseDeveloperSupport(true)
 #else

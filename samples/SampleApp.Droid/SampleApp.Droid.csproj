@@ -112,6 +112,10 @@
     <AndroidAsset Include="Assets\index.android.bundle.meta" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\react-native-svg\react-native-svg.Droid\react-native-svg.Droid.csproj">
+      <Project>{2c228a9d-3250-41f5-88b5-3eec892f9975}</Project>
+      <Name>react-native-svg.Droid</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SharedCode\SharedCode.csproj">
       <Project>{f36f3b28-93d9-42f9-935e-a35739b6360c}</Project>
       <Name>SharedCode</Name>
