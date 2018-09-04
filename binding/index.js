@@ -13,7 +13,8 @@ import {
   Text,
   View,
   Button,
-  NativeModules
+  NativeModules,
+  ART, Dimensions
 } from 'react-native';
 import Svg,{
 	Circle,
@@ -30,8 +31,11 @@ import Svg,{
     Use,
     Defs,
     Stop
-} from 'react-native-svg'
+} from 'react-native-svg';
+import { VictoryLine, VictoryChart, VictoryTheme } from "victory-native";
+import PureChart from 'react-native-pure-chart';
 
+const width = Dimensions.get('window').width;
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
@@ -39,7 +43,40 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-class RNHelloWorld extends Component<{}> {
+class RNHelloWorld extends Component {
+  constructor() {
+    super();
+    this.state = {
+      sampleData: [
+        { x: 0, y: 100 },
+        { x: 1, y: 165 },
+        { x: 2, y: 150 },
+        { x: 3, y: 290 },
+        { x: 4, y: 190 },
+        { x: 5, y: 100 },
+        { x: 6, y: 165 },
+        { x: 7, y: 150 },
+        { x: 8, y: 290 },
+        { x: 9, y: 190 },
+        { x: 10, y: 100 },
+        { x: 11, y: 165 },
+        { x: 12, y: 150 },
+        { x: 13, y: 290 },
+        { x: 14, y: 190 }, 
+        { x: 15, y: 100 },
+        { x: 16, y: 165 },
+        { x: 17, y: 150 },
+        { x: 18, y: 290 },
+        { x: 19, y: 190 }
+      ]
+    }
+    this._updateSampleData = this._updateSampleData.bind(this);
+  }
+  componentDidMount() {
+    setInterval(() => {
+      this._updateSampleData();
+    }, 200);
+  }
   _onPressToastButton() {
 	  NativeModules.ToastExample.show();
   }
@@ -65,58 +102,21 @@ class RNHelloWorld extends Component<{}> {
       console.error(e);
     }
   }
+  _updateSampleData() {
+    let sampleData = this.state.sampleData;
+    sampleData.map((item, i) => {
+      item.y = Math.floor(Math.random() * 300) + 1
+    });
+    this.setState({
+      sampleData: sampleData
+    })
+  }
   render() {
-	
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Hey there! Wassup?
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
-        <Text>
-          Test ? ! www
-        </Text>
-		<Button
-          onPress={this._onPressToastButton}
-          title="Toast"
-          color="#2267d6"
-        />
-        <Button
-          onPress={this._onPressCallbackButton}
-          title="Callback"
-          color="#841584"
-        />
-        <Button
-          onPress={this._onPressPromiseButton}
-          title="Promise"
-          color="#4da058"
-        />
-		<Svg 
-			height="100"
-			width="100">
-			<Circle
-				cx="50"
-				cy="50"
-				r="45"
-				stroke="blue"
-				strokeWidth="2.5"
-				fill="green"
-			/>
-			<Rect
-				x="15"
-				y="15"
-				width="70"
-				height="70"
-				stroke="red"
-				strokeWidth="2"
-				fill="yellow"
-			/>
-		</Svg>
+        <VictoryChart width={width} theme={VictoryTheme.material} domain={{ x: [0, 19], y: [0, 300] }}>
+          <VictoryLine data={this.state.sampleData} x="x" y="y" />
+        </VictoryChart> 
       </View>
     );
   }
@@ -128,6 +128,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
+    padding: 20,
+    margin: 10
+  },
+  graphContainer: {
+    position: 'relative',
+    width: '100%',
+    height: '100%'
   },
   welcome: {
     fontSize: 20,
