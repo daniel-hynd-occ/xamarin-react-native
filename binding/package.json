@@ -16,6 +16,7 @@
     "react-native": "^0.55.3",
     "react-native-pure-chart": "^0.0.24",
     "react-native-svg": "^6.5.2",
+    "react-navigation": "^2.12.1",
     "victory-native": "^30.3.0"
   }
 }
