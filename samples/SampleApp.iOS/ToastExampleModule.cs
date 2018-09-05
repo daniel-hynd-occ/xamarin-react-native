@@ -7,6 +7,7 @@ using Foundation;
 using UIKit;
 using ReactNative.iOS;
 using System.Runtime.InteropServices;
+using System.Diagnostics;
 
 namespace SampleApp.iOS
 {
@@ -18,15 +19,15 @@ namespace SampleApp.iOS
         [Export("requiresMainQueueSetup")]
         public static bool RequiresMainQueueSetup => false;
 
-        [Export("show")]
-        public void Show()
+        [Export("show:")]
+        public void Show(string msg)
         {
             InvokeOnMainThread(() =>
             {
                 var alert = new UIAlertView()
                 {
                     Title = "An Alert",
-                    Message = "This is an iOS native alert"
+                    Message = "This is an iOS native alert, " + msg
                 };
                 alert.AddButton("OK");
                 alert.Show();
@@ -39,7 +40,7 @@ namespace SampleApp.iOS
             var info = new RCTMethodInfo()
             {
                 jsName = string.Empty,
-                objcName = "show",
+                objcName = "show: (NSString*) msg",
                 isSync = false
             };
 

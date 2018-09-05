@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "react-native-svg", "react-n
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "react-native-svg.Droid", "react-native-svg\react-native-svg.Droid\react-native-svg.Droid.csproj", "{2C228A9D-3250-41F5-88B5-3EEC892F9975}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "react-native-svg.iOS", "react-native-svg\react-native-svg.iOS\react-native-svg.iOS.csproj", "{0DBD983F-BD8F-4BD6-B08A-AD28457D35EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,12 +71,25 @@ Global
 		{2C228A9D-3250-41F5-88B5-3EEC892F9975}.Release|iPhone.Build.0 = Release|Any CPU
 		{2C228A9D-3250-41F5-88B5-3EEC892F9975}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{2C228A9D-3250-41F5-88B5-3EEC892F9975}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{0DBD983F-BD8F-4BD6-B08A-AD28457D35EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DBD983F-BD8F-4BD6-B08A-AD28457D35EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DBD983F-BD8F-4BD6-B08A-AD28457D35EF}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{0DBD983F-BD8F-4BD6-B08A-AD28457D35EF}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{0DBD983F-BD8F-4BD6-B08A-AD28457D35EF}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{0DBD983F-BD8F-4BD6-B08A-AD28457D35EF}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{0DBD983F-BD8F-4BD6-B08A-AD28457D35EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DBD983F-BD8F-4BD6-B08A-AD28457D35EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DBD983F-BD8F-4BD6-B08A-AD28457D35EF}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{0DBD983F-BD8F-4BD6-B08A-AD28457D35EF}.Release|iPhone.Build.0 = Release|Any CPU
+		{0DBD983F-BD8F-4BD6-B08A-AD28457D35EF}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{0DBD983F-BD8F-4BD6-B08A-AD28457D35EF}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{2C228A9D-3250-41F5-88B5-3EEC892F9975} = {2930DFA4-BAA1-44B6-ABCD-4FC9321AEC17}
+		{0DBD983F-BD8F-4BD6-B08A-AD28457D35EF} = {2930DFA4-BAA1-44B6-ABCD-4FC9321AEC17}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FF9FAC6B-0821-47BB-A6F3-948EE7161BBA}

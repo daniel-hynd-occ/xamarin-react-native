@@ -39,6 +39,8 @@
 	<string>Resources/Images.xcassets/AppIcons.appiconset</string>
 	<key>CFBundleName</key>
 	<string>XamarinReactNative</string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSExceptionDomains</key>
