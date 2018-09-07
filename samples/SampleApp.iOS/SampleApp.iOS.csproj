@@ -98,4 +98,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\main.jsbundle" />
   </ItemGroup>
+  <ItemGroup>
+    <NativeReference Include="Native References/libRNSVG.iphonesimulator-x86_64-Debug.a">
+      <Kind>Static</Kind>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
+  </ItemGroup>
 </Project>

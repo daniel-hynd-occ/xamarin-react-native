@@ -41,7 +41,7 @@ const instructions = Platform.select({
 
 class RNHelloWorld extends Component<{}> {
   _onPressToastButton() {
-	  NativeModules.ToastExample.show();
+	  NativeModules.ToastExample.show("HEYYYY");
   }
 	
   _onPressCallbackButton() {
