@@ -1,10 +1,10 @@
 # Xamarin + react-native binding & sample project [![Build Status](https://www.bitrise.io/app/b3d5e7123fea85f8/status.svg?token=kL4Osd_HE45B1xGIH9wqVA&branch=master)](https://www.bitrise.io/app/b3d5e7123fea85f8)
 
-##Added Comments
+## Added Comments
 1. React-native-svg support was added for iOS
 2. JS methods can take arguments
 
-####How the .a svg library was built:
+#### How the .a svg library was built:
 (for all possible architectures, rename respectively after creation to prevent overwriting)
 xcodebuild -project RNSVG.xcodeproj -sdk iphonesimulator11.4 -arch x86_64 -configuration Debug clean build
 xcodebuild -project RNSVG.xcodeproj -sdk iphonesimulator11.4 -arch i386 -configuration Debug clean build
@@ -16,20 +16,20 @@ xcodebuild -project RNSVG.xcodeproj -sdk iphoneos11.4 -arch armv7 -configuration
 Combine them all in one fat library:
 lipo -create -output libRNSVG.Release.a libRNSVG.iphoneos-arm64-Release.a libRNSVG.iphoneos-armv7-Release.a
 
-####How to Add/Amend exported native methods to JS:
-#####call it from index.js
+#### How to Add/Amend exported native methods to JS:
+##### call it from index.js
 	-it must be exported in ApiDefinition.cs
-#####build for iOS and Android (from inside C:\Development\git\xamarin-react-native\binding)
+##### build for iOS and Android (from inside C:\Development\git\xamarin-react-native\binding)
 	yarn bundle-ios
 	yarn bundle-android
-#####build and debug SampleApp
+##### build and debug SampleApp
 
-####TO DO
+#### TO DO
 make callback work on JS
 
 
 
-##Original Comments
+## Original Comments
 This project is inspired and based on https://github.com/cluxton/xamarin-react-native. Credits to him, for his good work! :+1:
 
 #### Whats in the box?
