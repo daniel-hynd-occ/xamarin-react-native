@@ -52,6 +52,9 @@
     <Compile Include="RetentionAnnotation.cs" />
   </ItemGroup>
   <ItemGroup>
+    <LibraryProjectZip Include="..\node_modules\react-native\android\com\facebook\react\react-native\0.57.3\react-native-0.57.3.aar">
+      <Link>Jars\react-native-0.57.3.aar</Link>
+    </LibraryProjectZip>
     <None Include="Additions\AboutAdditions.txt" />
     <None Include="Jars\AboutJars.txt" />
     <None Include="packages.config" />
@@ -66,9 +69,6 @@
     </TransformFile>
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="..\node_modules\react-native\android\com\facebook\react\react-native\0.55.3\react-native-0.55.3.aar">
-      <Link>Jars\react-native-0.55.3.aar</Link>
-    </LibraryProjectZip>
     <LibraryProjectZip Include="Jars\android-jsc-r174650.aar" />
   </ItemGroup>
   <ItemGroup>
