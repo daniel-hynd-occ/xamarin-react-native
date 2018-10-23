@@ -42,6 +42,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android.Export" />
+    <Reference Include="react-native-svg.Droid, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\react-native-svg\react-native-svg.Droid\bin\Debug\react-native-svg.Droid.dll</HintPath>
+    </Reference>
     <Reference Include="ReactNative.Droid">
       <HintPath>..\..\binding\ReactNative.Droid\bin\Debug\ReactNative.Droid.dll</HintPath>
     </Reference>
