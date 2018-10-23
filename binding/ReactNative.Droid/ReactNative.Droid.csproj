@@ -73,18 +73,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedJar Include="Jars\javax.inject-1.jar" />
-    <EmbeddedJar Include="Jars\soloader-0.2.0.jar" />
-    <EmbeddedJar Include="Jars\fbcore-1.5.0.jar" />
-    <EmbeddedJar Include="Jars\fresco-1.5.0.jar" />
-    <EmbeddedJar Include="Jars\drawee-1.5.0.jar" />
-    <EmbeddedJar Include="Jars\imagepipeline-base-1.5.0.jar" />
-    <EmbeddedJar Include="Jars\imagepipeline-okhttp3-1.5.0.jar" />
-    <EmbeddedJar Include="Jars\imagepipeline-1.5.0.jar" />
     <EmbeddedJar Include="Jars\jsr305-3.0.2.jar" />
     <EmbeddedJar Include="Jars\textlayoutbuilder-1.1.0.jar" />
     <EmbeddedJar Include="Jars\bolts-tasks-1.4.0.jar" />
-    <EmbeddedJar Include="Jars\okhttp-3.9.0.jar" />
-    <EmbeddedJar Include="Jars\okhttp-urlconnection-3.9.0.jar" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedNativeLibrary Include="Jni\arm64-v8a\libimagepipeline.so" />
@@ -92,6 +83,36 @@
     <EmbeddedNativeLibrary Include="Jni\armeabi-v7a\libimagepipeline.so" />
     <EmbeddedNativeLibrary Include="Jni\x86\libimagepipeline.so" />
     <EmbeddedNativeLibrary Include="Jni\x86_64\libimagepipeline.so" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedJar Include="Jars\infer-annotation-0.11.2.jar" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedJar Include="Jars\fresco-1.11.0.jar" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedJar Include="Jars\drawee-1.11.0.jar" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedJar Include="Jars\fbcore-1.11.0.jar" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedJar Include="Jars\imagepipeline-1.11.0.jar" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedJar Include="Jars\imagepipeline-base-1.11.0.jar" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedJar Include="Jars\imagepipeline-okhttp3-1.11.0.jar" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedJar Include="Jars\okhttp-3.11.0.jar" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedJar Include="Jars\okhttp-urlconnection-3.11.0.jar" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedJar Include="Jars\soloader-0.5.1.jar" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
 </Project>
