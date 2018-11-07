@@ -14,11 +14,13 @@
     <remove-node path="/api/package[@name='com.facebook.common.executors']/class[@name='ScheduledFutureImpl']" />
     <remove-node path="/api/package[@name='com.facebook.datasource']/class[@name='FirstAvailableDataSourceSupplier']" />
     <remove-node path="/api/package[@name='com.facebook.datasource']/class[@name='IncreasingQualityDataSourceSupplier']" />
+    <remove-node path="/api/package[@name='com.facebook.datasource']/class[@name='RetainingDataSourceSupplier']" />
     <!-- Fresco Drawee -->
     <remove-node path="/api/package[@name='com.facebook.drawee.controller']" />
     <remove-node path="/api/package[@name='com.facebook.drawee.drawable']" />
     <remove-node path="/api/package[@name='com.facebook.cache.disk']" />
     <remove-node path="/api/package[contains(@name, 'com.facebook.imagepipeline')]" />
+    <remove-node path="/api/package[@name='com.facebook.drawee']/class[@name='BuildConfig']" />
     <!--
 	    React
 	-->

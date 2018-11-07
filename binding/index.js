@@ -30,7 +30,7 @@ import Svg,{
     Use,
     Defs,
     Stop
-} from 'react-native-svg'
+} from 'react-native-svg';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -79,23 +79,8 @@ class RNHelloWorld extends Component<{}> {
           {instructions}
         </Text>
         <Text>
-          Test ? ! www
+          Test ? ! www ok?
         </Text>
-		<Button
-          onPress={this._onPressToastButton}
-          title="Toast"
-          color="#2267d6"
-        />
-        <Button
-          onPress={this._onPressCallbackButton}
-          title="Callback"
-          color="#841584"
-        />
-        <Button
-          onPress={this._onPressPromiseButton}
-          title="Promise"
-          color="#4da058"
-        />
 		<Svg 
 			height="100"
 			width="100">
