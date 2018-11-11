@@ -13,24 +13,9 @@ import {
   Text,
   View,
   Button,
-  NativeModules
+  NativeModules,
+  NativeEventEmitter
 } from 'react-native';
-import Svg,{
-	Circle,
-    Ellipse,
-    G,
-    LinearGradient,
-    RadialGradient,
-    Line,
-    Path,
-    Polygon,
-    Polyline,
-    Rect,
-    Symbol,
-    Use,
-    Defs,
-    Stop
-} from 'react-native-svg';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -65,6 +50,41 @@ class RNHelloWorld extends Component<{}> {
       console.error(e);
     }
   }
+
+  async doTest(){
+    try{
+      var result = await NativeModules.RNG.test("some words");
+      console.log(result);
+    }
+    catch(e){
+      console.log(e);
+    }
+  }
+
+  async doShow(){
+    await NativeModules.ToastExample.show();
+  }
+
+  async doNotify(){
+    NativeModules.RNG.notify((error, result) => {
+      if(error){
+        console.log(error);
+      }
+      else{
+        console.log(result);
+      }
+    });
+  }
+
+  _sendEvent = function(){
+    NativeModules.Events.send();
+  }
+
+  componentDidMount(){
+    const emitter = new NativeEventEmitter(NativeModules.Events);
+    emitter.addListener("AnEvent", (e) => console.log(e));
+  }
+
   render() {
 	
     return (
@@ -79,29 +99,16 @@ class RNHelloWorld extends Component<{}> {
           {instructions}
         </Text>
         <Text>
-          Test ? ! www ok?
+          Test 123 abc !
         </Text>
-		<Svg 
-			height="100"
-			width="100">
-			<Circle
-				cx="50"
-				cy="50"
-				r="45"
-				stroke="blue"
-				strokeWidth="2.5"
-				fill="green"
-			/>
-			<Rect
-				x="15"
-				y="15"
-				width="70"
-				height="70"
-				stroke="red"
-				strokeWidth="2"
-				fill="yellow"
-			/>
-		</Svg>
+        <Button 
+          onPress = {this.doNotify}
+          title="Promise"
+          />
+        <Button 
+          onPress = {this._sendEvent}
+          title="Event"
+          />
       </View>
     );
   }

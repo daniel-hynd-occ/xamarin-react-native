@@ -1,6 +1,11 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
+using UIKit;
+using Foundation;
+using ObjCRuntime;
+using CoreGraphics;
+
 namespace ReactNative.iOS
 {
     [StructLayout(LayoutKind.Sequential)]

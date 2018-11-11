@@ -31,6 +31,8 @@ namespace SampleApp.iOS
             //var url = NSUrl.FromString("http://localhost:8081/index.bundle?platform=ios");
 
             CFunctions.RCTRegisterModule(ObjCRuntime.Class.GetHandle(typeof(ToastExampleModule)));
+            CFunctions.RCTRegisterModule(ObjCRuntime.Class.GetHandle(typeof(RandomNumberModule)));
+            CFunctions.RCTRegisterModule(ObjCRuntime.Class.GetHandle(typeof(EventsModule)));
 
             RCTRootView rootView = new RCTRootView(url, new NSString("MyReactNativeApp"), props, options);
             var vc = new UIViewController();

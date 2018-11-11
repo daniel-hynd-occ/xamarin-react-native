@@ -12,8 +12,7 @@
     "bundle-sample-forms-ios": "react-native bundle --platform ios --dev false --entry-file index.js --bundle-output ../samples/SampleApp.Forms.iOS/Resources/main.jsbundle --assets-dest ../samples/SampleApp.Forms.iOS/Resources/"
   },
   "dependencies": {
-    "react": "^16.3.1",
-    "react-native": "^0.57.3",
-    "react-native-svg": "^6.5.2"
+    "react": "^16.6.1",
+    "react-native": "^0.57.4"
   }
 }

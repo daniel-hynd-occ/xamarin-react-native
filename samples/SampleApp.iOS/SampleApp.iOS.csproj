@@ -59,13 +59,17 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
-    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignEntitlements>
+    </CodesignEntitlements>
     <MtouchProfiling>true</MtouchProfiling>
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <MtouchLink>None</MtouchLink>
     <MtouchI18n>
     </MtouchI18n>
+    <CodesignProvision />
+    <CodesignExtraArgs />
+    <CodesignResourceRules />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ReactNative.iOS">
@@ -89,6 +93,7 @@
     <None Include="Entitlements.plist" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventsModule.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="RandomNumberModule.cs" />
