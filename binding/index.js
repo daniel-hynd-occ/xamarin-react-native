@@ -65,13 +65,24 @@ class RNHelloWorld extends Component<{}> {
     await NativeModules.ToastExample.show();
   }
 
-  async doNotify(){
-    NativeModules.RNG.notify((error, result) => {
+  _addOne = function(){
+    NativeModules.RNG.addOne(1, (error, result) => {
       if(error){
         console.log(error);
       }
       else{
-        console.log(result);
+        console.log("add one", result);
+      }
+    });
+  }
+
+  _addTwo = function(){
+    NativeModules.RNG.addTwo(10, (error, result) => {
+      if(error){
+        console.log(error);
+      }
+      else{
+        console.log("add two", result);
       }
     });
   }
@@ -82,7 +93,17 @@ class RNHelloWorld extends Component<{}> {
 
   componentDidMount(){
     const emitter = new NativeEventEmitter(NativeModules.Events);
-    emitter.addListener("AnEvent", (e) => console.log(e));
+    emitter.addListener("AnEvent", (e) => console.log("event", e));
+  }
+
+  async square(){
+    try{
+      const x2 = await NativeModules.RNG.square(2);
+      console.log("square", x2);
+    }
+    catch(e){
+      console.log(e);
+    }
   }
 
   render() {
@@ -102,12 +123,20 @@ class RNHelloWorld extends Component<{}> {
           Test 123 abc !
         </Text>
         <Button 
-          onPress = {this.doNotify}
-          title="Promise"
+          onPress = {this._addOne}
+          title="Callback"
+          />
+          <Button 
+          onPress = {this._addTwo}
+          title="Callback 2"
           />
         <Button 
           onPress = {this._sendEvent}
           title="Event"
+          />
+        <Button 
+          onPress = {this.square}
+          title="Promise"
           />
       </View>
     );

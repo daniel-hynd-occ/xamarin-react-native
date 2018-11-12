@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 
@@ -19,15 +21,6 @@ namespace SampleApp.iOS
 
         [Export("requiresMainQueueSetup")]
         public static bool RequiresMainQueueSetup => false;
-
-        public delegate void RCTPromiseResolveBlock(NSObject result);
-        public delegate void RCTPromiseRejectBlock(NSString code, NSString message, NSError error);
-
-        //[Export("test:resolve:reject")]
-        //public void Test(RCTPromiseResolveBlock resolve, RCTPromiseRejectBlock reject)
-        //{
-        //    resolve(NSObject.FromObject("resolved"));
-        //}
 
         [Export("test:")]
         public void Test(string msg) => Debug.WriteLine(msg);
@@ -48,28 +41,74 @@ namespace SampleApp.iOS
             return ptr;
         }
 
-        //[Export("notify:")]
-        //public void NotifyMe(RCTResponseSenderBlock callback)
-        //{
-        //    var array = new object[] { null, "done" };
+        [Export("addOne::")]
+        public override void AddOne(int x, RCTResponseSenderBlock callback)
+        {
+            var result = FromObject(x + 1);
+            callback(new[] { NSNull.Null, result });
+        }
 
-        //    Debug.WriteLine("notified");
-        //}
+        [Export("__rct_export__addOne")]
+        public static IntPtr AddOneExport()
+        {
+            var method = new RCTMethodInfo()
+            {
+                jsName = string.Empty,
+                objcName = "addOne:(int)x:(RCTResponseSenderBlock)callback",
+                isSync = false
+            };
 
-        //[Export("__rct_export__notify")]
-        //public static IntPtr NotifyMeExport()
-        //{
-        //    var method = new RCTMethodInfo()
-        //    {
-        //        jsName = string.Empty,
-        //        objcName = "notify:(RCTResponseSenderBlock)callback",
-        //        isSync = false
-        //    };
+            var ptr = Marshal.AllocHGlobal(Marshal.SizeOf(method));
+            Marshal.StructureToPtr(method, ptr, false);
 
-        //    var ptr = Marshal.AllocHGlobal(Marshal.SizeOf(method));
-        //    Marshal.StructureToPtr(method, ptr, false);
+            return ptr;
+        }
 
-        //    return ptr;
-        //}
+        /* This will throw "ObjCRuntime.RuntimeException: Unable to locate the block to delegate conversion method for the method SampleApp.iOS.RandomNumberModule.AddTwo's parameter #2. Please file a bug at http://bugzilla.xamarin.com."
+         
+        [Export("addTwo::")]
+        public void AddTwo(int x, RCTResponseSenderBlock callback)
+        {
+            var result = FromObject(x + 2);
+            callback(new[] { NSNull.Null, result });
+        }
+
+        [Export("__rct_export__addTwo")]
+        public static IntPtr AddTwoExport()
+        {
+            var method = new RCTMethodInfo()
+            {
+                jsName = string.Empty,
+                objcName = "addTwo:(int)x:(RCTResponseSenderBlock)callback",
+                isSync = false
+            };
+
+            var ptr = Marshal.AllocHGlobal(Marshal.SizeOf(method));
+            Marshal.StructureToPtr(method, ptr, false);
+
+            return ptr;
+        }*/
+
+        [Export("square::rejecter:")]
+        public override void Square(int x, RCTPromiseResolveBlock resolve, RCTPromiseRejectBlock reject)
+        {
+            resolve(FromObject(x * x));
+        }
+
+        [Export("__rct_export__square")]
+        public static IntPtr SquareExport()
+        {
+            var method = new RCTMethodInfo()
+            {
+                jsName = string.Empty,
+                objcName = "square:(int)x:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject",
+                isSync = false
+            };
+
+            var ptr = Marshal.AllocHGlobal(Marshal.SizeOf(method));
+            Marshal.StructureToPtr(method, ptr, false);
+
+            return ptr;
+        }
     }
 }

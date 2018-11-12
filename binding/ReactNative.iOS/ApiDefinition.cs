@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Runtime.InteropServices;
 
 using UIKit;
@@ -33,19 +33,26 @@ namespace ReactNative.iOS
     [BaseType(typeof(NSObject))]
     interface RCTBridgeModule
     {
-    }
+        /* These are placeholders for functions with block parameters exported from implementation modules.
+         * Required in order to generate the corresponding block conversions and to avoid an exception.
+         * Actual module should override this function with the implementation. */
+        [Export("addOne::")]
+        void AddOne(int x, RCTResponseSenderBlock response);
 
-    // typedef void (^RCTResponseSenderBlock)(NSArray *);
-    delegate void RCTResponseSenderBlock(NSObject[] arg0);
+        [Export("square::rejecter:")]
+        void Square(int x, RCTPromiseResolveBlock resolve, RCTPromiseRejectBlock reject);
+    }    // typedef void (^RCTResponseSenderBlock)(NSArray *);
+
+    public delegate void RCTResponseSenderBlock(NSObject[] response);
 
     // typedef void (^RCTResponseErrorBlock)(NSError *);
-    delegate void RCTResponseErrorBlock(NSError arg0);
+    public delegate void RCTResponseErrorBlock(NSError error);
 
     // typedef void (^RCTPromiseResolveBlock)(id);
-    delegate void RCTPromiseResolveBlock(NSObject arg0);
+    public delegate void RCTPromiseResolveBlock(NSObject result);
 
     // typedef void (^RCTPromiseRejectBlock)(NSString *, NSString *, NSError *);
-    delegate void RCTPromiseRejectBlock(string arg0, string arg1, NSError arg2);
+    public delegate void RCTPromiseRejectBlock(string code, string message, NSError error);
 
     // @interface RCTEventEmitter : NSObject<RCTBridgeModule>
     [BaseType(typeof(NSObject))]
