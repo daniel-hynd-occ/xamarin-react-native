@@ -45,13 +45,14 @@
     <Reference Include="ReactNative.Droid">
       <HintPath>..\..\binding\ReactNative.Droid\bin\Debug\ReactNative.Droid.dll</HintPath>
     </Reference>
+    <Reference Include="Square.OkIO, Version=1.13.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Square.OkIO.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
-    <Reference Include="Square.OkIO">
-      <HintPath>..\packages\Square.OkIO.1.13.0\lib\MonoAndroid\Square.OkIO.dll</HintPath>
-    </Reference>
     <Reference Include="Xamarin.Android.Arch.Core.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Xamarin.Android.Arch.Core.Common.1.0.0.1\lib\MonoAndroid80\Xamarin.Android.Arch.Core.Common.dll</HintPath>
     </Reference>
@@ -93,6 +94,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventsModule.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="RandomNumberModule.cs" />
     <Compile Include="ReactMethod.cs" />

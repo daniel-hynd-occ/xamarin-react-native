@@ -22,7 +22,8 @@ namespace SampleApp.Droid
             return new List<INativeModule>
             {
                 new ToastModule(reactContext),
-                new RandomNumberModule(reactContext)
+                new RandomNumberModule(reactContext),
+                new EventsModule(reactContext)
             };
         }
 

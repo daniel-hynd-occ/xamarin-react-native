@@ -93,7 +93,7 @@ class RNHelloWorld extends Component<{}> {
 
   componentDidMount(){
     const emitter = new NativeEventEmitter(NativeModules.Events);
-    emitter.addListener("AnEvent", (e) => console.log("event", e));
+    const listener = emitter.addListener("AnEvent", (e) => console.log("event", e));
   }
 
   async square(){
