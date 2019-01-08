@@ -14,8 +14,13 @@ import {
   View,
   Button,
   NativeModules,
-  NativeEventEmitter
+  NativeEventEmitter,
+  Dimensions
 } from 'react-native';
+import Svg, {
+  Circle,
+  Rect
+} from 'react-native-svg';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -26,12 +31,12 @@ const instructions = Platform.select({
 
 class RNHelloWorld extends Component<{}> {
   _onPressToastButton() {
-	  NativeModules.ToastExample.show();
+    NativeModules.ToastExample.show();
   }
-	
+
   _onPressCallbackButton() {
-	  NativeModules.RNG.nextAsString(
-      (err)=>{
+    NativeModules.RNG.nextAsString(
+      (err) => {
         console.error(err);
       },
       (x) => {
@@ -40,104 +45,127 @@ class RNHelloWorld extends Component<{}> {
     );
   }
 
-  _onPressPromiseButton = async function() {
-    try{
-      var x = await NativeModules.RNG.nextNegative(10,20);
+  _onPressPromiseButton = async function () {
+    try {
+      var x = await NativeModules.RNG.nextNegative(10, 20);
       Alert.alert('Number is:' + x);
     }
-    catch(e)
-    {
+    catch (e) {
       console.error(e);
     }
   }
 
-  async doTest(){
-    try{
+  async doTest() {
+    try {
       var result = await NativeModules.RNG.test("some words");
       console.log(result);
     }
-    catch(e){
+    catch (e) {
       console.log(e);
     }
   }
 
-  async doShow(){
+  async doShow() {
     await NativeModules.ToastExample.show();
   }
 
-  _addOne = function(){
+  _addOne = function () {
     NativeModules.RNG.addOne(1, (error, result) => {
-      if(error){
+      if (error) {
         console.log(error);
       }
-      else{
+      else {
         console.log("add one", result);
       }
     });
   }
 
-  _addTwo = function(){
+  _addTwo = function () {
     NativeModules.RNG.addTwo(10, (error, result) => {
-      if(error){
+      if (error) {
         console.log(error);
       }
-      else{
+      else {
         console.log("add two", result);
       }
     });
   }
 
-  _sendEvent = function(){
+  _sendEvent = function () {
     NativeModules.Events.send();
   }
 
-  componentDidMount(){
+  componentDidMount() {
     const emitter = new NativeEventEmitter(NativeModules.Events);
     const listener = emitter.addListener("AnEvent", (e) => console.log("event", e));
   }
 
-  async square(){
-    try{
+  async square() {
+    try {
       const x2 = await NativeModules.RNG.square(2);
       console.log("square", x2);
     }
-    catch(e){
+    catch (e) {
       console.log(e);
     }
   }
 
   render() {
-	
+    const { width, height } = Dimensions.get('window');
+
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Hey there! Wassup?
+        <View>
+          <Text style={styles.welcome}>
+            Hey there! Wassup?
         </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
+          <Text style={styles.instructions}>
+            To get started, edit App.js
         </Text>
-        <Text style={styles.instructions}>
-          {instructions}
+          <Text style={styles.instructions}>
+            {instructions}
+          </Text>
+          <Text>
+            Test 123 abc !
         </Text>
-        <Text>
-          Test 123 abc !
-        </Text>
-        <Button 
-          onPress = {this._addOne}
-          title="Callback"
+          <Button
+            onPress={this._addOne}
+            title="Callback"
           />
-          <Button 
-          onPress = {this._addTwo}
-          title="Callback 2"
+          <Button
+            onPress={this._addTwo}
+            title="Callback 2"
           />
-        <Button 
-          onPress = {this._sendEvent}
-          title="Event"
+          <Button
+            onPress={this._sendEvent}
+            title="Event"
           />
-        <Button 
-          onPress = {this.square}
-          title="Promise"
+          <Button
+            onPress={this.square}
+            title="Promise"
           />
+        </View>
+        <View>
+          <Svg height={height * 0.5} width={width * 0.5} viewBox="0 0 100 100">
+            <Circle
+              cx="50"
+              cy="50"
+              r="45"
+              stroke="blue"
+              strokeWidth="2.5"
+              fill="green"
+            />
+            <Rect
+              x="15"
+              y="15"
+              width="70"
+              height="70"
+              stroke="red"
+              strokeWidth="2"
+              fill="yellow"
+            />
+          </Svg>
+        </View>
       </View>
     );
   }

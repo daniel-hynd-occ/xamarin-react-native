@@ -37,13 +37,13 @@
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Square.OkIO">
+      <HintPath>..\..\lib\Square.OkIO.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
-    <Reference Include="Square.OkIO">
-      <HintPath>..\packages\Square.OkIO.1.13.0\lib\MonoAndroid\Square.OkIO.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -57,7 +57,6 @@
     </LibraryProjectZip>
     <None Include="Additions\AboutAdditions.txt" />
     <None Include="Jars\AboutJars.txt" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <TransformFile Include="Transforms\EnumFields.xml" />
@@ -113,6 +112,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedJar Include="Jars\soloader-0.5.1.jar" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedJar Include="Jars\react-native-svg-8.0.10.jar" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
 </Project>
